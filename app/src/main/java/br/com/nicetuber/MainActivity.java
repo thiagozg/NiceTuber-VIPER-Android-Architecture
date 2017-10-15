@@ -1,9 +1,10 @@
 package br.com.nicetuber;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity {
+import br.com.nicetuber.base.BaseActivity;
+
+public class MainActivity extends BaseActivity {
 
 
     @Override
@@ -11,4 +12,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
+
+    @Override
+    protected void injectDagger() {
+
+    }
+
+    @Override
+    protected int getXmlLayout() {
+        return 0;
+    }
+    
 }
