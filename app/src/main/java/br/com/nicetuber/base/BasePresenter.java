@@ -11,8 +11,4 @@ public class BasePresenter<I extends BaseInteractor> {
     @Inject
     protected I interactor;
 
-    @Inject
-    public BasePresenter() {
-    }
-
 }

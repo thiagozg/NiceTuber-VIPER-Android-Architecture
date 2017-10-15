@@ -13,6 +13,9 @@ import android.view.ViewGroup;
 
 import javax.inject.Inject;
 
+import br.com.nicetuber.AppComponent;
+import br.com.nicetuber.CustomApplication;
+
 /**
  * Created by thiagozg on 14/10/2017.
  */
@@ -72,6 +75,12 @@ public abstract class BaseFragment<B extends ViewDataBinding, P extends BasePres
 
     protected BaseActivity getBaseActivity() {
         return (BaseActivity) context;
+    }
+
+    protected AppComponent getAppComponent() {
+        CustomApplication application = (CustomApplication) getBaseActivity().getApplication();
+
+        return application.getAppComponent();
     }
 
     /**

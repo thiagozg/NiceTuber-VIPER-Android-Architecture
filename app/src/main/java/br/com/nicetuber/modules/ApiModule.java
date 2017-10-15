@@ -15,7 +15,7 @@ public class ApiModule {
 
     @Provides
     @Singleton
-    public YoutubeApi providesProductApi(Retrofit retrofit) {
+    public YoutubeApi providesYoutubeApi(Retrofit retrofit) {
         return retrofit.create(YoutubeApi.class);
     }
 

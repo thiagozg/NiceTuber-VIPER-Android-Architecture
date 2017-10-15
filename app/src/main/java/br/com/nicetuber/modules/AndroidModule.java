@@ -20,6 +20,12 @@ public class AndroidModule {
 
     @Provides
     @Singleton
+    public Application provideApplication() {
+        return application;
+    }
+
+    @Provides
+    @Singleton
     public Context providesContext() {
         return application;
     }

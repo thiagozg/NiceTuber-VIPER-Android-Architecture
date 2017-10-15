@@ -2,11 +2,16 @@ package br.com.nicetuber.base;
 
 import android.content.Context;
 import android.databinding.ViewDataBinding;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
 import javax.inject.Inject;
+
+import br.com.nicetuber.AppComponent;
+import br.com.nicetuber.CustomApplication;
 
 /**
  * Created by thiagozg on 14/10/2017.
@@ -26,6 +31,12 @@ public abstract class BaseActivity<B extends ViewDataBinding, P extends BasePres
     protected abstract int getXmlLayout();
 
     @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(getXmlLayout());
+    }
+
+    @Override
     public void onResume() {
         super.onResume();
 
@@ -36,8 +47,10 @@ public abstract class BaseActivity<B extends ViewDataBinding, P extends BasePres
         }
     }
 
-    protected View createInheritView() {
-        return this.binding.getRoot();
+    protected AppComponent getAppComponent() {
+        CustomApplication application = (CustomApplication) getApplication();
+
+        return application.getAppComponent();
     }
 
 }
