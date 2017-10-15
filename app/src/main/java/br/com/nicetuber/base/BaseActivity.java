@@ -18,7 +18,7 @@ import br.com.nicetuber.CustomApplication;
  * Created by thiagozg on 14/10/2017.
  */
 
-public abstract class BaseActivity<B extends ViewDataBinding, P extends BasePresenter> extends AppCompatActivity {
+public abstract class BaseActivity<B extends ViewDataBinding, P> extends AppCompatActivity {
 
     protected B binding;
 

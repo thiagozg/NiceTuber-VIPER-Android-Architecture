@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">NiceTuber</string>
+    <string name="search_title">Search</string>
+    <string name="search_hint">Channel</string>
 </resources>

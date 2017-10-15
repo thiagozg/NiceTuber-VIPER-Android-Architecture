@@ -16,15 +16,16 @@ public class MainInteractor extends BaseInteractor {
     public MainInteractor() {
     }
 
-    public void teste() {
-        youtubeApi.search("guilherme diaz")
+    public void search(MainMVP.Callback callback, String query) {
+        youtubeApi.search(query)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(
-                    response -> {
-                        response.getListChannels();
-                    },
-                    Throwable::printStackTrace
+                    response -> callback.onSearchChannelSuccess(response.getListChannels()),
+                    throwable -> {
+                        callback.onSearchChannelError(throwable.getMessage());
+                        throwable.printStackTrace();
+                    }
             );
     }
 }

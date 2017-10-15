@@ -11,7 +11,7 @@ import java.util.List;
  * Google Play.:    https://play.google.com/store/apps/developer?id=Thiago+Giacomini
  */
 
-public class SearchChannelResult {
+public class SearchChannelResponse {
 
     @SerializedName("items")
     private List<Channel> listChannels;

@@ -15,6 +15,6 @@ public class MainPresenter extends BasePresenter<MainInteractor> {
     }
 
     public void teste() {
-        interactor.teste();
+        interactor.search();
     }
 }
