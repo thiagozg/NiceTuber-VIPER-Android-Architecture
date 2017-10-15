@@ -13,4 +13,8 @@ public class MainPresenter extends BasePresenter<MainInteractor> {
     @Inject
     public MainPresenter() {
     }
+
+    public void teste() {
+        interactor.teste();
+    }
 }

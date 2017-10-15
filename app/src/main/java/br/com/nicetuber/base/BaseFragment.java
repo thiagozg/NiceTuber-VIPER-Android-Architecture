@@ -79,7 +79,6 @@ public abstract class BaseFragment<B extends ViewDataBinding, P extends BasePres
 
     protected AppComponent getAppComponent() {
         CustomApplication application = (CustomApplication) getBaseActivity().getApplication();
-
         return application.getAppComponent();
     }
 

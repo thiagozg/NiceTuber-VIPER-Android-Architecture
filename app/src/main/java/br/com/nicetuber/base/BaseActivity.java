@@ -1,6 +1,7 @@
 package br.com.nicetuber.base;
 
 import android.content.Context;
+import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -33,7 +34,12 @@ public abstract class BaseActivity<B extends ViewDataBinding, P extends BasePres
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(getXmlLayout());
+        injectDagger();
+
+        // To avoid recreation of View
+        if (this.binding == null) {
+            this.binding = DataBindingUtil.setContentView(this, getXmlLayout());
+        }
     }
 
     @Override
@@ -49,7 +55,6 @@ public abstract class BaseActivity<B extends ViewDataBinding, P extends BasePres
 
     protected AppComponent getAppComponent() {
         CustomApplication application = (CustomApplication) getApplication();
-
         return application.getAppComponent();
     }
 
