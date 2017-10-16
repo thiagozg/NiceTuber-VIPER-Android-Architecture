@@ -11,7 +11,8 @@ import br.com.nicetuber.model.Channel;
 public interface MainMVP {
 
     interface View {
-
+        void showErrorMessage(String message);
+        void showList(List<Channel> response);
     }
 
     interface Callback {

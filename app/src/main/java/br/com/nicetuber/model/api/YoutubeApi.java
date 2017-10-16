@@ -13,6 +13,6 @@ import retrofit2.http.Query;
 public interface YoutubeApi {
 
     @GET("search?part=snippet&type=channel&key=" + BuildConfig.API_KEY + "&maxResults=20")
-    Single<SearchChannelResponse> search(@Query("query") String query);
+    Single<SearchChannelResponse> searchChannel(@Query("q") String query);
 
 }
