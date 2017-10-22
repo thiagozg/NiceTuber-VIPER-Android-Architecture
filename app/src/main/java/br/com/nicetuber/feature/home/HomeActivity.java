@@ -1,4 +1,4 @@
-package br.com.nicetuber.feature.main;
+package br.com.nicetuber.feature.home;
 
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.LinearLayoutManager;
@@ -11,13 +11,14 @@ import java.util.List;
 
 import br.com.nicetuber.R;
 import br.com.nicetuber.base.BaseActivity;
-import br.com.nicetuber.databinding.ActivityMainBinding;
+import br.com.nicetuber.databinding.ActivityHomeBinding;
 import br.com.nicetuber.model.Channel;
 import br.com.nicetuber.util.UIListeners;
 
-public class MainActivity extends BaseActivity<ActivityMainBinding, MainPresenter>
-        implements MainMVP.View, UIListeners.OnClickListener, SearchView.OnQueryTextListener {
+public class HomeActivity extends BaseActivity<ActivityHomeBinding, HomePresenter>
+        implements HomeMVP.View, UIListeners.OnClickListener, SearchView.OnQueryTextListener {
 
+    //TODO : trazer teclado já para digitar
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.options_menu, menu);
@@ -25,6 +26,17 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainPresente
         MenuItem searchItem = menu.findItem(R.id.action_search);
         SearchView searchView = (SearchView) searchItem.getActionView();
         searchView.setOnQueryTextListener(this);
+        searchItem.setOnActionExpandListener(new MenuItem.OnActionExpandListener() {
+            @Override
+            public boolean onMenuItemActionExpand(MenuItem menuItem) {
+                return true;
+            }
+
+            @Override
+            public boolean onMenuItemActionCollapse(MenuItem menuItem) {
+                return true;
+            }
+        });
 
         return true;
     }
@@ -36,7 +48,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainPresente
 
     @Override
     protected int getXmlLayout() {
-        return R.layout.activity_main;
+        return R.layout.activity_home;
     }
 
     @Override
@@ -45,7 +57,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainPresente
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
 
-        ChannelAdapter adapter = new ChannelAdapter(response, this);
+        HomeChannelAdapter adapter = new HomeChannelAdapter(response, this);
         recyclerView.setAdapter(adapter);
     }
 
@@ -67,6 +79,6 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainPresente
 
     @Override
     public void onClick(Channel channel) {
-        // TODO : router call ActivityChannelDetails
+        HomeRouter.goToChannelDetailsView(this, channel);
     }
 }

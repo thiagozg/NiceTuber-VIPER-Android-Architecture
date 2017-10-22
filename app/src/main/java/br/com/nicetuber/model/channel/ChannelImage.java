@@ -9,7 +9,7 @@ import com.google.gson.annotations.SerializedName;
  * Google Play.:    https://play.google.com/store/apps/developer?id=Thiago+Giacomini
  */
 
-public class ImageUrl {
+public class ChannelImage {
 
     @SerializedName("url")
     private String url;

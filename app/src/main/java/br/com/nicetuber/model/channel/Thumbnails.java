@@ -11,35 +11,35 @@ import com.google.gson.annotations.SerializedName;
 public class Thumbnails {
 
     @SerializedName("default")
-    private ImageUrl imageDefault;
+    private ChannelImage imageDefault;
 
     @SerializedName("medium")
-    private ImageUrl imageMedium;
+    private ChannelImage imageMedium;
 
     @SerializedName("high")
-    private ImageUrl imageHigh;
+    private ChannelImage imageHigh;
 
-    public ImageUrl getImageDefault() {
+    public ChannelImage getImageDefault() {
         return imageDefault;
     }
 
-    public void setImageDefault(ImageUrl imageDefault) {
+    public void setImageDefault(ChannelImage imageDefault) {
         this.imageDefault = imageDefault;
     }
 
-    public ImageUrl getImageMedium() {
+    public ChannelImage getImageMedium() {
         return imageMedium;
     }
 
-    public void setImageMedium(ImageUrl imageMedium) {
+    public void setImageMedium(ChannelImage imageMedium) {
         this.imageMedium = imageMedium;
     }
 
-    public ImageUrl getImageHigh() {
+    public ChannelImage getImageHigh() {
         return imageHigh;
     }
 
-    public void setImageHigh(ImageUrl imageHigh) {
+    public void setImageHigh(ChannelImage imageHigh) {
         this.imageHigh = imageHigh;
     }
 }

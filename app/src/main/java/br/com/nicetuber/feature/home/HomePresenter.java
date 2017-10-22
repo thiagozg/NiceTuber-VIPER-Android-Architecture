@@ -1,4 +1,4 @@
-package br.com.nicetuber.feature.main;
+package br.com.nicetuber.feature.home;
 
 import java.util.List;
 
@@ -11,16 +11,16 @@ import br.com.nicetuber.model.Channel;
  * Created by thiagozg on 15/10/2017.
  */
 
-public class MainPresenter extends BasePresenter<MainInteractor>
-    implements MainMVP.Callback {
+public class HomePresenter extends BasePresenter<HomeInteractor>
+    implements HomeMVP.Callback {
 
-    private MainMVP.View view;
+    private HomeMVP.View view;
 
     @Inject
-    public MainPresenter() {
+    public HomePresenter() {
     }
 
-    public void searchChannel(MainMVP.View view, String query) {
+    public void searchChannel(HomeMVP.View view, String query) {
         this.view = view;
         interactor.searchChannel(this, query);
     }

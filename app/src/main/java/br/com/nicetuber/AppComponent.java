@@ -2,7 +2,7 @@ package br.com.nicetuber;
 
 import javax.inject.Singleton;
 
-import br.com.nicetuber.feature.main.MainActivity;
+import br.com.nicetuber.feature.home.HomeActivity;
 import br.com.nicetuber.modules.AndroidModule;
 import br.com.nicetuber.modules.ApiModule;
 import br.com.nicetuber.modules.NetModule;
@@ -18,6 +18,8 @@ import dagger.Component;
 @Singleton
 public interface AppComponent {
 
-    void inject(MainActivity activity);
+    void inject(HomeActivity activity);
+
+//    void inject(ChannelDetailsActivity channelDetailsActivity);
 
 }

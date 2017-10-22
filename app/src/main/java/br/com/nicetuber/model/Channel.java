@@ -2,6 +2,8 @@ package br.com.nicetuber.model;
 
 import com.google.gson.annotations.SerializedName;
 
+import org.parceler.Parcel;
+
 import br.com.nicetuber.model.channel.Snippet;
 
 /**
@@ -11,6 +13,7 @@ import br.com.nicetuber.model.channel.Snippet;
  * Google Play.:    https://play.google.com/store/apps/developer?id=Thiago+Giacomini
  */
 
+@Parcel
 public class Channel {
 
     @SerializedName("snippet")

@@ -1,4 +1,4 @@
-package br.com.nicetuber.feature.main;
+package br.com.nicetuber.feature.home;
 
 import android.databinding.DataBindingUtil;
 import android.support.v7.widget.RecyclerView;
@@ -16,12 +16,12 @@ import br.com.nicetuber.util.UIListeners;
  * Created by thiagozg on 15/10/2017.
  */
 
-public class ChannelAdapter extends RecyclerView.Adapter<ChannelAdapter.ChannelHolder> {
+public class HomeChannelAdapter extends RecyclerView.Adapter<HomeChannelAdapter.ChannelHolder> {
 
     private List<Channel> listChannel;
     private UIListeners.OnClickListener listener;
 
-    public ChannelAdapter(List<Channel> listChannel, UIListeners.OnClickListener listener) {
+    public HomeChannelAdapter(List<Channel> listChannel, UIListeners.OnClickListener listener) {
         this.listChannel = listChannel;
         this.listener = listener;
     }

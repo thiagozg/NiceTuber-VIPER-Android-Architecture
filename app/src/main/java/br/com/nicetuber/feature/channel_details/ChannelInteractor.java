@@ -1,4 +1,4 @@
-package br.com.nicetuber.feature.main;
+package br.com.nicetuber.feature.channel_details;
 
 import com.annimon.stream.Stream;
 
@@ -7,6 +7,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import br.com.nicetuber.base.BaseInteractor;
+import br.com.nicetuber.feature.home.HomeMVP;
 import br.com.nicetuber.model.Channel;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
@@ -15,13 +16,13 @@ import io.reactivex.schedulers.Schedulers;
  * Created by thiagozg on 15/10/2017.
  */
 
-public class MainInteractor extends BaseInteractor {
+public class ChannelInteractor extends BaseInteractor {
 
     @Inject
-    public MainInteractor() {
+    public ChannelInteractor() {
     }
 
-    public void searchChannel(MainMVP.Callback callback, String query) {
+    public void searchChannel(HomeMVP.Callback callback, String query) {
         youtubeApi.searchChannel(query)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
