@@ -9,7 +9,7 @@ import java.util.List;
 
 import br.com.nicetuber.R;
 import br.com.nicetuber.databinding.ItemViewBinding;
-import br.com.nicetuber.model.Channel;
+import br.com.nicetuber.model.ChannelSearched;
 import br.com.nicetuber.util.UIListeners;
 
 /**
@@ -18,11 +18,11 @@ import br.com.nicetuber.util.UIListeners;
 
 public class HomeChannelAdapter extends RecyclerView.Adapter<HomeChannelAdapter.ChannelHolder> {
 
-    private List<Channel> listChannel;
+    private List<ChannelSearched> listChannelSearched;
     private UIListeners.OnClickListener listener;
 
-    public HomeChannelAdapter(List<Channel> listChannel, UIListeners.OnClickListener listener) {
-        this.listChannel = listChannel;
+    public HomeChannelAdapter(List<ChannelSearched> listChannelSearched, UIListeners.OnClickListener listener) {
+        this.listChannelSearched = listChannelSearched;
         this.listener = listener;
     }
 
@@ -36,8 +36,8 @@ public class HomeChannelAdapter extends RecyclerView.Adapter<HomeChannelAdapter.
         ChannelHolder holder = new ChannelHolder(binding);
         holder.itemView.setOnClickListener(view -> {
             int position = holder.getAdapterPosition();
-            Channel channel = listChannel.get(position);
-            listener.onClick(channel);
+            ChannelSearched channelSearched = listChannelSearched.get(position);
+            listener.onClick(channelSearched);
         });
 
         return holder;
@@ -45,14 +45,14 @@ public class HomeChannelAdapter extends RecyclerView.Adapter<HomeChannelAdapter.
 
     @Override
     public void onBindViewHolder(ChannelHolder holder, int position) {
-        Channel channel = listChannel.get(position);
-        holder.binding.setChannel(channel);
+        ChannelSearched channelSearched = listChannelSearched.get(position);
+        holder.binding.setChannelSearched(channelSearched);
         holder.binding.executePendingBindings();
     }
 
     @Override
     public int getItemCount() {
-        return listChannel.size();
+        return listChannelSearched.size();
     }
 
     public static class ChannelHolder extends RecyclerView.ViewHolder {

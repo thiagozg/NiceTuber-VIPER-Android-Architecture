@@ -1,5 +1,7 @@
 package br.com.nicetuber.model.api;
 
+import com.google.gson.JsonObject;
+
 import br.com.nicetuber.BuildConfig;
 import br.com.nicetuber.model.SearchChannelResponse;
 import io.reactivex.Single;
@@ -14,5 +16,8 @@ public interface YoutubeApi {
 
     @GET("search?part=snippet&type=channel&key=" + BuildConfig.API_KEY + "&maxResults=20")
     Single<SearchChannelResponse> searchChannel(@Query("q") String query);
+
+    @GET("channels?part=statistics&key=" + BuildConfig.API_KEY)
+    Single<JsonObject> getChannelStatistics(@Query("id") String channelId);
 
 }

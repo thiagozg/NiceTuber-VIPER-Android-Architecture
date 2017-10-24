@@ -24,8 +24,8 @@ android {
         }
         debug {
             debuggable true
-            minifyEnabled true
-            shrinkResources true
+            minifyEnabled false
+            shrinkResources false
             proguardFiles getDefaultProguardFile('proguard-android.txt')
         }
     }
@@ -50,8 +50,8 @@ dependencies {
     def rxAndroidVersion = '2.0.1'
     def daggerVersion = '2.9'
     def glideVersion = '4.2.0'
-    def parcelerVersion = '1.1.1'
-    def streamVersion = '1.1.5'
+    def parcelerVersion = '1.1.9'
+    def streamVersion = '1.1.9'
 
     implementation "com.android.support:appcompat-v7:${androidSupportVersion}"
     implementation "com.android.support:support-v4:${androidSupportVersion}"

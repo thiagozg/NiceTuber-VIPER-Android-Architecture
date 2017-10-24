@@ -2,6 +2,7 @@ package br.com.nicetuber;
 
 import javax.inject.Singleton;
 
+import br.com.nicetuber.feature.channel_details.ChannelDetailsActivity;
 import br.com.nicetuber.feature.home.HomeActivity;
 import br.com.nicetuber.modules.AndroidModule;
 import br.com.nicetuber.modules.ApiModule;
@@ -20,6 +21,6 @@ public interface AppComponent {
 
     void inject(HomeActivity activity);
 
-//    void inject(ChannelDetailsActivity channelDetailsActivity);
+    void inject(ChannelDetailsActivity channelDetailsActivity);
 
 }

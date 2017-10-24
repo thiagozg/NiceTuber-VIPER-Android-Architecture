@@ -7,7 +7,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import br.com.nicetuber.base.BaseInteractor;
-import br.com.nicetuber.model.Channel;
+import br.com.nicetuber.model.ChannelSearched;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
@@ -27,8 +27,8 @@ public class HomeInteractor extends BaseInteractor {
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(
                     response -> {
-                        List<Channel> listChannelsFiltered =
-                                Stream.of(response.getListChannels())
+                        List<ChannelSearched> listChannelsFiltered =
+                                Stream.of(response.getListChannelSearcheds())
                                         .filter(channel -> !channel.getSnippet().getDescription().isEmpty())
                                         .toList();
                         callback.onSearchChannelSuccess(listChannelsFiltered);

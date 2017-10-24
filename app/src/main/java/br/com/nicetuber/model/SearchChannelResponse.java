@@ -14,13 +14,13 @@ import java.util.List;
 public class SearchChannelResponse {
 
     @SerializedName("items")
-    private List<Channel> listChannels;
+    private List<ChannelSearched> listChannelSearcheds;
 
-    public List<Channel> getListChannels() {
-        return listChannels;
+    public List<ChannelSearched> getListChannelSearcheds() {
+        return listChannelSearcheds;
     }
 
-    public void setListChannels(List<Channel> listChannels) {
-        this.listChannels = listChannels;
+    public void setListChannelSearcheds(List<ChannelSearched> listChannelSearcheds) {
+        this.listChannelSearcheds = listChannelSearcheds;
     }
 }

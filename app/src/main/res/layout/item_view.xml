@@ -4,8 +4,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
     <data>
         <variable
-            name="channel"
-            type="br.com.nicetuber.model.Channel" />
+            name="channelSearched"
+            type="br.com.nicetuber.model.ChannelSearched" />
     </data>
 
     <android.support.constraint.ConstraintLayout
@@ -26,7 +26,7 @@
                 android:layout_marginTop="16dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                android:src="@{channel.snippet.thumbnails.imageMedium.url}" />
+                android:src="@{channelSearched.snippet.thumbnails.imageMedium}" />
 
             <TextView
                 android:id="@+id/tv_title"
@@ -38,7 +38,7 @@
                 android:gravity="start"
                 android:maxLines="1"
                 android:paddingRight="65dp"
-                android:text="@{channel.snippet.title}"
+                android:text="@{channelSearched.snippet.title}"
                 android:textSize="24sp"
                 app:layout_constraintStart_toEndOf="@+id/imageView"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -54,7 +54,7 @@
                 android:paddingRight="100dp"
                 android:maxLines="2"
                 android:ellipsize="end"
-                android:text="@{channel.snippet.description}"
+                android:text="@{channelSearched.snippet.description}"
                 app:layout_constraintStart_toEndOf="@+id/imageView"
                 app:layout_constraintTop_toBottomOf="@+id/tv_title" />
 

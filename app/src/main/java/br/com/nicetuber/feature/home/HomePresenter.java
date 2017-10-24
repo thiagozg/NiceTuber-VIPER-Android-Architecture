@@ -5,7 +5,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import br.com.nicetuber.base.BasePresenter;
-import br.com.nicetuber.model.Channel;
+import br.com.nicetuber.model.ChannelSearched;
 
 /**
  * Created by thiagozg on 15/10/2017.
@@ -26,7 +26,7 @@ public class HomePresenter extends BasePresenter<HomeInteractor>
     }
 
     @Override
-    public void onSearchChannelSuccess(List<Channel> response) {
+    public void onSearchChannelSuccess(List<ChannelSearched> response) {
         view.showList(response);
     }
 

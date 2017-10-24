@@ -12,7 +12,7 @@ import java.util.List;
 import br.com.nicetuber.R;
 import br.com.nicetuber.base.BaseActivity;
 import br.com.nicetuber.databinding.ActivityHomeBinding;
-import br.com.nicetuber.model.Channel;
+import br.com.nicetuber.model.ChannelSearched;
 import br.com.nicetuber.util.UIListeners;
 
 public class HomeActivity extends BaseActivity<ActivityHomeBinding, HomePresenter>
@@ -52,7 +52,7 @@ public class HomeActivity extends BaseActivity<ActivityHomeBinding, HomePresente
     }
 
     @Override
-    public void showList(List<Channel> response) {
+    public void showList(List<ChannelSearched> response) {
         RecyclerView recyclerView = binding.rvChannelList;
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
@@ -78,7 +78,7 @@ public class HomeActivity extends BaseActivity<ActivityHomeBinding, HomePresente
     }
 
     @Override
-    public void onClick(Channel channel) {
-        HomeRouter.goToChannelDetailsView(this, channel);
+    public void onClick(ChannelSearched channelSearched) {
+        HomeRouter.goToChannelDetailsView(this, channelSearched);
     }
 }

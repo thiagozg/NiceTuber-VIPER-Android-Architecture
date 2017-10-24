@@ -13,8 +13,8 @@ import br.com.nicetuber.model.channel.Snippet;
  * Google Play.:    https://play.google.com/store/apps/developer?id=Thiago+Giacomini
  */
 
-@Parcel
-public class Channel {
+@Parcel(Parcel.Serialization.BEAN)
+public class ChannelSearched {
 
     @SerializedName("snippet")
     private Snippet snippet;

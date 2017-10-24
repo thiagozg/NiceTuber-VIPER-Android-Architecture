@@ -1,6 +1,6 @@
 package br.com.nicetuber.util;
 
-import br.com.nicetuber.model.Channel;
+import br.com.nicetuber.model.ChannelSearched;
 
 /**
  * Created by thiagozg on 15/10/2017.
@@ -9,7 +9,7 @@ import br.com.nicetuber.model.Channel;
 public interface UIListeners {
 
     interface OnClickListener {
-        void onClick(Channel channel);
+        void onClick(ChannelSearched channelSearched);
     }
 
 }
