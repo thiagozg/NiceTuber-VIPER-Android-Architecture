@@ -45,17 +45,21 @@ public abstract class BaseActivity<B extends ViewDataBinding, P> extends AppComp
     @Override
     public void onResume() {
         super.onResume();
-
-        View view = this.getCurrentFocus();
-        if (view != null) {
-            InputMethodManager imm = (InputMethodManager) this.getSystemService(Context.INPUT_METHOD_SERVICE);
-            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
-        }
+        this.closeKeyboard();
     }
 
     protected AppComponent getAppComponent() {
         CustomApplication application = (CustomApplication) getApplication();
         return application.getAppComponent();
+    }
+
+    protected void closeKeyboard() {
+        View view = this.getCurrentFocus();
+        if (view != null) {
+            InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+            if (imm != null)
+                imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
     }
 
 }

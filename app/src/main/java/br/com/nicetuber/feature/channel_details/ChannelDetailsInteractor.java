@@ -5,7 +5,6 @@ import com.google.gson.Gson;
 import javax.inject.Inject;
 
 import br.com.nicetuber.base.BaseInteractor;
-import br.com.nicetuber.model.ChannelStatistics;
 import br.com.nicetuber.util.JsonDeserializer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
@@ -28,11 +27,8 @@ public class ChannelDetailsInteractor extends BaseInteractor {
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(
-                    response -> {
-                        ChannelStatistics channelStatistics =
-                                JsonDeserializer.deserializeChannelStatistics(gson, response);
-                        callback.getChannelStatisticsSuccess(channelStatistics);
-                    },
+                    response -> callback.getChannelStatisticsSuccess(
+                            JsonDeserializer.deserializeChannelStatistics(gson, response)),
                     throwable -> {
                         callback.getChannelStatisticsError(throwable.getMessage());
                         throwable.printStackTrace();

@@ -14,8 +14,9 @@ import retrofit2.http.Query;
 
 public interface YoutubeApi {
 
-    @GET("search?part=snippet&type=channel&key=" + BuildConfig.API_KEY + "&maxResults=20")
-    Single<SearchChannelResponse> searchChannel(@Query("q") String query);
+    @GET("search?part=snippet&type=channel&maxResults=20&order=viewCount&key=" + BuildConfig.API_KEY)
+    Single<SearchChannelResponse> searchChannel(@Query("q") String query,
+                                                @Query("regionCode") String regionCode);
 
     @GET("channels?part=statistics&key=" + BuildConfig.API_KEY)
     Single<JsonObject> getChannelStatistics(@Query("id") String channelId);

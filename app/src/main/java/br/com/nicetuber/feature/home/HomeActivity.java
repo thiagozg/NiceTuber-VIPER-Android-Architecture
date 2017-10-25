@@ -3,9 +3,9 @@ package br.com.nicetuber.feature.home;
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.SearchView;
 
 import java.util.List;
 
@@ -18,7 +18,6 @@ import br.com.nicetuber.util.UIListeners;
 public class HomeActivity extends BaseActivity<ActivityHomeBinding, HomePresenter>
         implements HomeMVP.View, UIListeners.OnClickListener, SearchView.OnQueryTextListener {
 
-    //TODO : trazer teclado já para digitar
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.options_menu, menu);
@@ -34,6 +33,7 @@ public class HomeActivity extends BaseActivity<ActivityHomeBinding, HomePresente
 
             @Override
             public boolean onMenuItemActionCollapse(MenuItem menuItem) {
+                HomeActivity.super.closeKeyboard();
                 return true;
             }
         });
@@ -68,6 +68,7 @@ public class HomeActivity extends BaseActivity<ActivityHomeBinding, HomePresente
 
     @Override
     public boolean onQueryTextSubmit(String query) {
+        super.closeKeyboard();
         presenter.searchChannel(this, query);
         return true;
     }

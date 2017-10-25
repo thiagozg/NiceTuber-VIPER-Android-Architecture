@@ -3,6 +3,7 @@ package br.com.nicetuber.feature.home;
 import com.annimon.stream.Stream;
 
 import java.util.List;
+import java.util.Locale;
 
 import javax.inject.Inject;
 
@@ -22,7 +23,7 @@ public class HomeInteractor extends BaseInteractor {
     }
 
     public void searchChannel(HomeMVP.Callback callback, String query) {
-        youtubeApi.searchChannel(query)
+        youtubeApi.searchChannel(query, Locale.getDefault().getCountry())
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(

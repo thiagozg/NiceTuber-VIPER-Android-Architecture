@@ -16,13 +16,15 @@
             android:id="@+id/cl_infos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="18dp">
+            android:paddingBottom="18dp"
+            android:paddingRight="30dp"
+            android:paddingLeft="30dp">
 
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="71dp"
                 android:layout_height="68dp"
-                android:layout_marginLeft="28dp"
+                android:layout_marginLeft="4dp"
                 android:layout_marginTop="16dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
