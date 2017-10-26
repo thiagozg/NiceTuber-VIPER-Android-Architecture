@@ -53,6 +53,8 @@ public class HomeActivity extends BaseActivity<ActivityHomeBinding, HomePresente
 
     @Override
     public void showList(List<ChannelSearched> response) {
+        super.closeKeyboard();
+
         RecyclerView recyclerView = binding.rvChannelList;
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
@@ -68,7 +70,6 @@ public class HomeActivity extends BaseActivity<ActivityHomeBinding, HomePresente
 
     @Override
     public boolean onQueryTextSubmit(String query) {
-        super.closeKeyboard();
         presenter.searchChannel(this, query);
         return true;
     }
