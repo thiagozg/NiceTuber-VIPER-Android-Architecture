@@ -13,7 +13,7 @@ import br.com.nicetuber.modules.RetrofitModule;
 
 public class CustomApplication extends Application {
 
-    private static AppComponent appComponent;
+    private AppComponent appComponent;
 
     @Override
     public void onCreate() {
@@ -27,7 +27,7 @@ public class CustomApplication extends Application {
                         .build();
     }
 
-    public static AppComponent getAppComponent() {
+    public AppComponent getAppComponent() {
         return appComponent;
     }
 

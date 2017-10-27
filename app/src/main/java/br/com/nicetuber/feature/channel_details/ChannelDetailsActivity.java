@@ -17,7 +17,7 @@ import br.com.nicetuber.util.ParamKey;
 
 public class ChannelDetailsActivity
         extends BaseActivity<ActivityChannelDetailsBinding, ChannelDetailsPresenter>
-        implements ChannelDetailsMVP.View {
+        implements IChannelDetails.View {
 
     @Override
     protected void onStart() {
@@ -25,7 +25,7 @@ public class ChannelDetailsActivity
         ChannelSearched channelSearched =
                 Parcels.unwrap(getIntent().getParcelableExtra(ParamKey.KEY_CHANNEL));
         binding.setChannelSearched(channelSearched);
-        presenter.getChannelStatistics(this, channelSearched.getSnippet().getChannelId());
+        presenter.getChannelStatistics(channelSearched.getSnippet().getChannelId());
     }
 
     @Override
@@ -36,6 +36,16 @@ public class ChannelDetailsActivity
     @Override
     protected int getXmlLayout() {
         return R.layout.activity_channel_details;
+    }
+
+    @Override
+    protected void attachView() {
+        presenter.attachView(this);
+    }
+
+    @Override
+    protected void detachView() {
+        presenter.detachView();
     }
 
     @Override

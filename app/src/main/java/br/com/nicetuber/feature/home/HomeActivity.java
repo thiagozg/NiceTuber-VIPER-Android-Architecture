@@ -16,7 +16,7 @@ import br.com.nicetuber.model.ChannelSearched;
 import br.com.nicetuber.util.UIListeners;
 
 public class HomeActivity extends BaseActivity<ActivityHomeBinding, HomePresenter>
-        implements HomeMVP.View, UIListeners.OnClickListener, SearchView.OnQueryTextListener {
+        implements IHome.View, UIListeners.OnClickListener, SearchView.OnQueryTextListener {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -52,6 +52,16 @@ public class HomeActivity extends BaseActivity<ActivityHomeBinding, HomePresente
     }
 
     @Override
+    protected void attachView() {
+        presenter.attachView(this);
+    }
+
+    @Override
+    protected void detachView() {
+        presenter.detachView();
+    }
+
+    @Override
     public void showList(List<ChannelSearched> response) {
         super.closeKeyboard();
 
@@ -70,7 +80,7 @@ public class HomeActivity extends BaseActivity<ActivityHomeBinding, HomePresente
 
     @Override
     public boolean onQueryTextSubmit(String query) {
-        presenter.searchChannel(this, query);
+        presenter.searchChannel(query);
         return true;
     }
 

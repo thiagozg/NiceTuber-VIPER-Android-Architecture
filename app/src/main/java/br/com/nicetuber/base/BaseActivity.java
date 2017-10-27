@@ -34,13 +34,17 @@ public abstract class BaseActivity<B extends ViewDataBinding, P> extends AppComp
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        injectDagger();
+        this.injectDagger();
+        this.attachView();
 
         // To avoid recreation of View
         if (this.binding == null) {
             this.binding = DataBindingUtil.setContentView(this, getXmlLayout());
         }
     }
+
+    protected abstract void attachView();
+    protected abstract void detachView();
 
     @Override
     public void onResume() {
@@ -60,6 +64,12 @@ public abstract class BaseActivity<B extends ViewDataBinding, P> extends AppComp
             if (imm != null)
                 imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        this.detachView();
     }
 
 }

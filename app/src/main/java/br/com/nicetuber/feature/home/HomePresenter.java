@@ -11,17 +11,14 @@ import br.com.nicetuber.model.ChannelSearched;
  * Created by thiagozg on 15/10/2017.
  */
 
-public class HomePresenter extends BasePresenter<HomeInteractor>
-    implements HomeMVP.Callback {
-
-    private HomeMVP.View view;
+public class HomePresenter extends BasePresenter<IHome.View, HomeInteractor>
+    implements IHome.Callback {
 
     @Inject
     public HomePresenter() {
     }
 
-    public void searchChannel(HomeMVP.View view, String query) {
-        this.view = view;
+    public void searchChannel(String query) {
         interactor.searchChannel(this, query);
     }
 

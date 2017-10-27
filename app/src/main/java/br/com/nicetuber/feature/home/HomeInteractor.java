@@ -22,7 +22,7 @@ public class HomeInteractor extends BaseInteractor {
     public HomeInteractor() {
     }
 
-    public void searchChannel(HomeMVP.Callback callback, String query) {
+    public void searchChannel(IHome.Callback callback, String query) {
         youtubeApi.searchChannel(query, Locale.getDefault().getCountry())
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())

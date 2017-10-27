@@ -9,17 +9,14 @@ import br.com.nicetuber.model.ChannelStatistics;
  * Created by thiagozg on 15/10/2017.
  */
 
-public class ChannelDetailsPresenter extends BasePresenter<ChannelDetailsInteractor>
-    implements ChannelDetailsMVP.Callback {
-
-    private ChannelDetailsMVP.View view;
+public class ChannelDetailsPresenter extends BasePresenter<IChannelDetails.View, ChannelDetailsInteractor>
+    implements IChannelDetails.Callback {
 
     @Inject
     public ChannelDetailsPresenter() {
     }
 
-    public void getChannelStatistics(ChannelDetailsMVP.View view, String channelId) {
-        this.view = view;
+    public void getChannelStatistics(String channelId) {
         interactor.getChannelStatistics(this, channelId);
     }
 

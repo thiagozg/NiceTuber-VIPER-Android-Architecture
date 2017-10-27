@@ -22,7 +22,7 @@ public class ChannelDetailsInteractor extends BaseInteractor {
     public ChannelDetailsInteractor() {
     }
 
-    public void getChannelStatistics(ChannelDetailsMVP.Callback callback, String channelId) {
+    public void getChannelStatistics(IChannelDetails.Callback callback, String channelId) {
         youtubeApi.getChannelStatistics(channelId)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
