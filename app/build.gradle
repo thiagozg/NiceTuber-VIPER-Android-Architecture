@@ -1,4 +1,7 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 26
@@ -38,6 +41,7 @@ android {
         }
     }
 
+    // TODO : remover
     dataBinding {
         enabled true
     }
@@ -45,6 +49,15 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+    }
+    // TODO
+
+    kapt {
+        generateStubs = true
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
     }
 }
 
@@ -56,10 +69,12 @@ dependencies {
     def rxRetrofitAdapter = '2.2.0'
     def rxJavaVersion = '2.0.5'
     def rxAndroidVersion = '2.0.1'
-    def daggerVersion = '2.9'
+    def daggerVersion = '2.11'
     def glideVersion = '4.2.0'
     def parcelerVersion = '1.1.9'
     def streamVersion = '1.1.9'
+
+    kapt "com.android.databinding:compiler:3.0.0"
 
     implementation "com.android.support:appcompat-v7:${androidSupportVersion}"
     implementation "com.android.support:support-v4:${androidSupportVersion}"
@@ -77,7 +92,10 @@ dependencies {
     implementation "io.reactivex.rxjava2:rxandroid:${rxAndroidVersion}"
 
     implementation "com.google.dagger:dagger:${daggerVersion}"
-    annotationProcessor "com.google.dagger:dagger-compiler:${daggerVersion}"
+//    implementation "com.google.dagger:dagger-android:${daggerVersion}"
+//    implementation "com.google.dagger:dagger-android-support:${daggerVersion}"
+    kapt "com.google.dagger:dagger-compiler:${daggerVersion}"
+//    kapt "com.google.dagger:dagger-android-processor:${daggerVersion}"
 
     implementation "com.github.bumptech.glide:glide:${glideVersion}"
     annotationProcessor "com.github.bumptech.glide:compiler:${glideVersion}"
@@ -103,5 +121,9 @@ dependencies {
     androidTestCompile ('com.android.support.test:rules:0.5'){
         exclude module: 'support-annotations'
     }
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_version"
 
+}
+repositories {
+    mavenCentral()
 }

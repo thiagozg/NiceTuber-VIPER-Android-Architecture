@@ -12,12 +12,12 @@ public final class NumberFormatterTest {
 
     @Test
     public void testFormatThousand_shouldBeTrue() {
-        assertEquals(NumberFormatter.formatThousand("54321"), "54.321");
+        assertEquals(NumberFormatter.INSTANCE.formatThousand("54321"), "54.321");
     }
 
     @Test
     public void testFormatThousand_shouldReturn0() {
-        assertEquals(NumberFormatter.formatThousand(null), "0");
+        assertEquals(NumberFormatter.INSTANCE.formatThousand(null), "0");
     }
 
 }
