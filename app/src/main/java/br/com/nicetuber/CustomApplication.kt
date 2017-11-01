@@ -1,6 +1,10 @@
 package br.com.nicetuber
 
 import android.app.Application
+import br.com.nicetuber.modules.AndroidModule
+import br.com.nicetuber.modules.ApiModule
+import br.com.nicetuber.modules.NetModule
+import br.com.nicetuber.modules.RetrofitModule
 
 /**
  * Created by thiagozg on 15/10/2017.
@@ -9,19 +13,17 @@ import android.app.Application
 class CustomApplication : Application() {
 
 
-    companion object {
-        @JvmStatic lateinit var appComponent: AppComponent
-    }
+    lateinit var appComponent: AppComponent
 
     override fun onCreate() {
         super.onCreate()
 
-//        appComponent = DaggerAppComponent.builder()
-//                .androidModule(AndroidModule(this))
-//                .netModule(NetModule())
-//                .retrofitModule(RetrofitModule())
-//                .apiModule(ApiModule())
-//                .build()
+        appComponent = DaggerAppComponent.builder()
+                .androidModule(AndroidModule(this))
+                .netModule(NetModule())
+                .retrofitModule(RetrofitModule())
+                .apiModule(ApiModule())
+                .build()
     }
 
 }

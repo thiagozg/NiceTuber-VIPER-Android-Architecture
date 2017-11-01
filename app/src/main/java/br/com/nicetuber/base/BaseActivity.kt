@@ -1,8 +1,6 @@
 package br.com.nicetuber.base
 
 import android.content.Context
-import android.databinding.DataBindingUtil
-import android.databinding.ViewDataBinding
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.inputmethod.InputMethodManager
@@ -14,12 +12,10 @@ import javax.inject.Inject
  * Created by thiagozg on 14/10/2017.
  */
 
-abstract class BaseActivity<B : ViewDataBinding, P> : AppCompatActivity() {
-
-    protected var binding: B? = null
+abstract class BaseActivity<P : Any> : AppCompatActivity() {
 
     @Inject
-    protected var presenter: P? = null
+    protected lateinit var presenter: P
 
     protected val appComponent: AppComponent?
         get() {
@@ -35,13 +31,9 @@ abstract class BaseActivity<B : ViewDataBinding, P> : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(getXmlLayout())
         this.injectDagger()
         this.attachView()
-
-        // To avoid recreation of View
-        if (this.binding == null) {
-            this.binding = DataBindingUtil.setContentView(this, getXmlLayout())
-        }
     }
 
     protected abstract fun attachView()

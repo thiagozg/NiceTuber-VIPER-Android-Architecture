@@ -8,11 +8,11 @@ import android.view.MenuItem
 import android.view.View
 import br.com.nicetuber.R
 import br.com.nicetuber.base.BaseActivity
-import br.com.nicetuber.databinding.ActivityHomeBinding
 import br.com.nicetuber.model.ChannelSearched
 import br.com.nicetuber.util.UIListeners
+import kotlinx.android.synthetic.main.activity_home.*
 
-class HomeActivity : BaseActivity<ActivityHomeBinding, HomePresenter>(),
+class HomeActivity : BaseActivity<HomePresenter>(),
         IHome.View, UIListeners.OnClickListener, SearchView.OnQueryTextListener {
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -54,16 +54,15 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomePresenter>(),
     override fun showList(response: List<ChannelSearched>) {
         super.closeKeyboard()
 
-        val recyclerView = binding?.rvChannelList
-        recyclerView?.layoutManager = LinearLayoutManager(this)
-        recyclerView?.setHasFixedSize(true)
+        rv_channel_list.layoutManager = LinearLayoutManager(this)
+        rv_channel_list.setHasFixedSize(true)
 
         val adapter = HomeChannelAdapter(response, this)
-        recyclerView?.adapter = adapter
+        rv_channel_list.adapter = adapter
     }
 
     override fun showErrorMessage(message: String) {
-        Snackbar.make(binding?.clActivityMain as View, message, Snackbar.LENGTH_LONG).show()
+        Snackbar.make(cl_activity_main as View, message, Snackbar.LENGTH_LONG).show()
     }
 
     override fun onQueryTextSubmit(query: String): Boolean {

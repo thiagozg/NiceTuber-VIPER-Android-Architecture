@@ -1,7 +1,7 @@
 package br.com.nicetuber.feature.channel_details
 
 import br.com.nicetuber.base.BaseInteractor
-import br.com.nicetuber.util.JsonDeserializer
+import br.com.nicetuber.util.deserializeToChannelStatistics
 import com.google.gson.Gson
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -23,7 +23,7 @@ constructor() : BaseInteractor() {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
                         { response -> callback.getChannelStatisticsSuccess(
-                                        JsonDeserializer.deserializeChannelStatistics(gson, response))
+                                        response.deserializeToChannelStatistics(gson))
                         }, {
                             throwable -> callback.getChannelStatisticsError(throwable.message!!)
                                             throwable.printStackTrace()

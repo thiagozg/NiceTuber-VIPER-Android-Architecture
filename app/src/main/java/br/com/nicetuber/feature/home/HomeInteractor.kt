@@ -1,7 +1,6 @@
 package br.com.nicetuber.feature.home
 
 import br.com.nicetuber.base.BaseInteractor
-import com.annimon.stream.Stream
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import java.util.*
@@ -20,7 +19,7 @@ constructor() : BaseInteractor() {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
                         { response ->
-                            val listChannelsFiltered = Stream.of(response.listChannelSearcheds!!)
+                            val listChannelsFiltered = response.listChannelSearcheds!!
                                     .filter { channel -> !channel.snippet!!.description!!.isEmpty() }
                                     .toList()
                             callback.onSearchChannelSuccess(listChannelsFiltered)

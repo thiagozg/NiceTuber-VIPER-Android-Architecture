@@ -10,8 +10,8 @@ android {
         applicationId "br.com.nicetuber"
         minSdkVersion 16
         targetSdkVersion 26
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "2.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
         buildConfigField "String", "ENDPOINT", "\"https://www.googleapis.com/youtube/v3/\""
@@ -41,17 +41,6 @@ android {
         }
     }
 
-    // TODO : remover
-    dataBinding {
-        enabled true
-    }
-
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-    // TODO
-
     kapt {
         generateStubs = true
     }
@@ -72,9 +61,8 @@ dependencies {
     def daggerVersion = '2.11'
     def glideVersion = '4.2.0'
     def parcelerVersion = '1.1.9'
-    def streamVersion = '1.1.9'
 
-    kapt "com.android.databinding:compiler:3.0.0"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_version"
 
     implementation "com.android.support:appcompat-v7:${androidSupportVersion}"
     implementation "com.android.support:support-v4:${androidSupportVersion}"
@@ -92,15 +80,10 @@ dependencies {
     implementation "io.reactivex.rxjava2:rxandroid:${rxAndroidVersion}"
 
     implementation "com.google.dagger:dagger:${daggerVersion}"
-//    implementation "com.google.dagger:dagger-android:${daggerVersion}"
-//    implementation "com.google.dagger:dagger-android-support:${daggerVersion}"
     kapt "com.google.dagger:dagger-compiler:${daggerVersion}"
-//    kapt "com.google.dagger:dagger-android-processor:${daggerVersion}"
 
     implementation "com.github.bumptech.glide:glide:${glideVersion}"
     annotationProcessor "com.github.bumptech.glide:compiler:${glideVersion}"
-
-    implementation "com.annimon:stream:${streamVersion}"
 
     implementation "org.parceler:parceler-api:${parcelerVersion}"
     annotationProcessor "org.parceler:parceler:${parcelerVersion}"
@@ -121,9 +104,5 @@ dependencies {
     androidTestCompile ('com.android.support.test:rules:0.5'){
         exclude module: 'support-annotations'
     }
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_version"
 
-}
-repositories {
-    mavenCentral()
 }
