@@ -1,0 +1,108 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion '26.0.2'
+    defaultConfig {
+        applicationId "br.com.nicetuber"
+        minSdkVersion 16
+        targetSdkVersion 26
+        versionCode 2
+        versionName "2.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        buildConfigField "String", "ENDPOINT", "\"https://www.googleapis.com/youtube/v3/\""
+        buildConfigField "String", "API_KEY", "\"PUT_YOUR_API_KEY\""
+    }
+
+    packagingOptions {
+        exclude 'LICENSE.txt'
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android.txt')
+
+        }
+        debug {
+            debuggable true
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android.txt')
+        }
+    }
+
+    kapt {
+        generateStubs = true
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+}
+
+dependencies {
+    def androidSupportVersion = '26.1.0'
+    def constraintVersion = '1.0.2'
+    def okHttpVersion = '3.6.0'
+    def retrofitVersion = '2.1.0'
+    def rxRetrofitAdapter = '2.2.0'
+    def rxJavaVersion = '2.0.5'
+    def rxAndroidVersion = '2.0.1'
+    def daggerVersion = '2.11'
+    def glideVersion = '4.2.0'
+    def parcelerVersion = '1.1.9'
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_version"
+
+    implementation "com.android.support:appcompat-v7:${androidSupportVersion}"
+    implementation "com.android.support:support-v4:${androidSupportVersion}"
+    implementation "com.android.support:design:${androidSupportVersion}"
+    implementation "com.android.support:recyclerview-v7:${androidSupportVersion}"
+    implementation "com.android.support.constraint:constraint-layout:${constraintVersion}"
+
+    implementation "com.squareup.okhttp3:okhttp:${okHttpVersion}"
+    implementation "com.squareup.okhttp3:logging-interceptor:${okHttpVersion}"
+    implementation "com.squareup.retrofit2:retrofit:${retrofitVersion}"
+    implementation "com.squareup.retrofit2:converter-gson:${retrofitVersion}"
+    implementation "com.squareup.retrofit2:converter-scalars:${retrofitVersion}"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:${rxRetrofitAdapter}"
+    implementation "io.reactivex.rxjava2:rxjava:${rxJavaVersion}"
+    implementation "io.reactivex.rxjava2:rxandroid:${rxAndroidVersion}"
+
+    implementation "com.google.dagger:dagger:${daggerVersion}"
+    kapt "com.google.dagger:dagger-compiler:${daggerVersion}"
+
+    implementation "com.github.bumptech.glide:glide:${glideVersion}"
+    annotationProcessor "com.github.bumptech.glide:compiler:${glideVersion}"
+
+    implementation "org.parceler:parceler-api:${parcelerVersion}"
+    annotationProcessor "org.parceler:parceler:${parcelerVersion}"
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    testCompile 'junit:junit:4.12'
+    testCompile "org.mockito:mockito-core:2.11.0"
+    androidTestCompile 'org.mockito:mockito-android:2.11.0'
+    androidTestCompile 'com.squareup.okhttp3:mockwebserver:3.6.0'
+
+    androidTestCompile ('com.android.support.test:runner:0.5'){
+        exclude module: 'support-annotations'
+    }
+
+    androidTestCompile ('com.android.support.test:rules:0.5'){
+        exclude module: 'support-annotations'
+    }
+
+}

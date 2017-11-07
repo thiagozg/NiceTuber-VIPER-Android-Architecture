@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">NiceTuber</string>
+    <string name="search_hint">Search</string>
+    <string name="title_error_dialog">Error Loading Profile</string>
+    <string name="ok">OK</string>
+    <string name="label_videos">Videos.:</string>
+    <string name="label_subscribers">Subscribers.:</string>
+    <string name="views">Views.:</string>
+    <string name="comments">Comments.:</string>
+</resources>
