@@ -12,7 +12,7 @@ This App was created with the objective of explore new features of Android devel
 * Youtube API
 * Data Binding (for Java version)
 
-**Atention: To build project, it's necessary to replace YOUTUBE_API_KEY on `build.gradle` for a valide key.**
+**Attention: To build project, it's necessary to replace YOUTUBE_API_KEY on `build.gradle` for a valid key.**
 
 >This repository has more two branchs, Kotlin and Java version.
 
