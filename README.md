@@ -1,19 +1,20 @@
-# MapsMarker an Android Native Application
+# NiceTuber an Android Native Application
 
 This App was created with the objective of explore new features of Android development.
 
-* MVVM Architecture
-* Architecture Components: ViewModel, LiveData, etc.
-* Dagger 2.14
+* VIPER Architecture
+* Dagger 2.11
 * RxJava 2 & RxAndroid 2
 * Retrofit 2
-* Picasso
+* Glide
 * GSON
-* Google Maps API
-* Espresso
-* Mockito
-* MockWebServer
+* ConstraintLayout
+* Youtube API
+* Data Binding (for Java version)
 
-**Atention: To build project, it's necessary to replace GOOGLE_API_KEY on ´build.gradle´ for a valide key.**
+**Atention: To build project, it's necessary to replace YOUTUBE_API_KEY on ´build.gradle´ for a valide key.**
 
-[gif]: https://github.com/thiagozg/MapsMarker/blob/develop/demo.gif
+>This repository has more two branchs, Kotlin and Java version.
+
+#### Demo
+![](demo.gif)
