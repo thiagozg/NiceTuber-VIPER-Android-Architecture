@@ -1,8 +1,9 @@
 package br.com.nicetuber.model
 
+import android.os.Parcelable
 import br.com.nicetuber.model.channel.Snippet
 import com.google.gson.annotations.SerializedName
-import org.parceler.Parcel
+import kotlinx.android.parcel.Parcelize
 
 /**
  * Developed by.:   @thiagozg on 01/04/2017.
@@ -11,9 +12,7 @@ import org.parceler.Parcel
  * Google Play.:    https://play.google.com/store/apps/developer?id=Thiago+Giacomini
  */
 
-@Parcel(Parcel.Serialization.BEAN)
-class ChannelSearched {
-
-    @SerializedName("snippet")
-    var snippet: Snippet? = null
-}
+@Parcelize
+class ChannelSearched(
+        @SerializedName("snippet") val snippet: Snippet
+) : Parcelable

@@ -1,11 +1,10 @@
 package br.com.nicetuber.feature.home
 
-import android.content.Context
+import android.app.Activity
 import android.content.Intent
 import br.com.nicetuber.feature.channel_details.ChannelDetailsActivity
+import br.com.nicetuber.feature.channel_details.ChannelDetailsActivity.Companion.KEY_CHANNEL_SELECTED
 import br.com.nicetuber.model.ChannelSearched
-import br.com.nicetuber.util.ParamKey.KEY_CHANNEL
-import org.parceler.Parcels
 
 /**
  * Created by thiagozg on 22/10/2017.
@@ -13,10 +12,10 @@ import org.parceler.Parcels
 
 object HomeRouter {
 
-    fun goToChannelDetailsView(context: Context, channelSearched: ChannelSearched) {
-        val intent = Intent(context, ChannelDetailsActivity::class.java)
-        intent.putExtra(KEY_CHANNEL, Parcels.wrap(channelSearched))
-        context.startActivity(intent)
+    fun goToChannelDetailsView(activity: Activity, channelSearched: ChannelSearched) {
+        val intent = Intent(activity, ChannelDetailsActivity::class.java)
+        intent.putExtra(KEY_CHANNEL_SELECTED, channelSearched)
+        activity.startActivity(intent)
     }
 
 }

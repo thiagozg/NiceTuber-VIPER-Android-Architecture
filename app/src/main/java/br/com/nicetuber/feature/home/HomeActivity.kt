@@ -44,11 +44,11 @@ class HomeActivity : BaseActivity<HomePresenter>(),
     }
 
     override fun attachView() {
-        presenter?.attachView(this)
+        presenter.attachView(this)
     }
 
     override fun detachView() {
-        presenter?.detachView()
+        presenter.detachView()
     }
 
     override fun showList(response: List<ChannelSearched>) {
@@ -66,7 +66,7 @@ class HomeActivity : BaseActivity<HomePresenter>(),
     }
 
     override fun onQueryTextSubmit(query: String): Boolean {
-        presenter?.searchChannel(query)
+        presenter.searchChannel(query)
         return true
     }
 

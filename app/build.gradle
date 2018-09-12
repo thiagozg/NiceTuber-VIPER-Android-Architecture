@@ -5,7 +5,7 @@ apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 26
-    buildToolsVersion '26.0.2'
+    buildToolsVersion '26.0.3'
     defaultConfig {
         applicationId "br.com.nicetuber"
         minSdkVersion 16
@@ -15,7 +15,7 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
         buildConfigField "String", "ENDPOINT", "\"https://www.googleapis.com/youtube/v3/\""
-        buildConfigField "String", "API_KEY", "\"AIzaSyBzSZh6n8yOuEi86T23n1gPahg-gT0LUto\""
+        buildConfigField "String", "API_KEY", YOUTUBE_API_KEY
     }
 
     packagingOptions {
@@ -48,6 +48,10 @@ android {
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
     }
+
+    androidExtensions {
+        experimental = true
+    }
 }
 
 dependencies {
@@ -60,7 +64,6 @@ dependencies {
     def rxAndroidVersion = '2.0.1'
     def daggerVersion = '2.11'
     def glideVersion = '4.2.0'
-    def parcelerVersion = '1.1.9'
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_version"
 
@@ -84,9 +87,6 @@ dependencies {
 
     implementation "com.github.bumptech.glide:glide:${glideVersion}"
     annotationProcessor "com.github.bumptech.glide:compiler:${glideVersion}"
-
-    implementation "org.parceler:parceler-api:${parcelerVersion}"
-    annotationProcessor "org.parceler:parceler:${parcelerVersion}"
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
